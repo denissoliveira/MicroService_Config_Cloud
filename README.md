@@ -1,12 +1,11 @@
-Este readme esta em construçao
+# Project MicroServices
 
-# Project Name
-
-Brief description of what your project does.
+Micro-services usando Feign, Spring Cloud, Eureka, Gateway, Circuit Breaker, Resilience4j, ConfigServer, LoadBalancer.
+As aplicações utilizam H2 como banco de dados.
 
 ## Table of Contents
 
-- [Project Name](#project-name)
+- [Project MicroServices](#project-microservices)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
@@ -22,72 +21,57 @@ Brief description of what your project does.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Micro Serviço
+- Spring Boot config-serve
 
 ## Prerequisites
 
 List what needs to be installed:
 
-```bash
-Node.js (v14 or higher)
-npm or yarn
-MongoDB (if applicable)
-```
+- java version "21.0.5" 2024-10-15 LTS
+- Apache Maven 3.9.9
+- Intellij, Eclipse or STS
+- Postman
 
 ## Installation
 
 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/denissoliveira/MicroService_Config_Cloud.git
 ```
 
 2. Install dependencies
 
-```bash
-npm install
-# or
-yarn install
-```
+- java version "21.0.5" 2024-10-15 LTS using [sdkman](https://sdkman.io/install/)
+- Apache Maven 3.9.9 using [sdkman](https://sdkman.io/install/)
 
 3. Configure environment variables
 
-```bash
-cp .env.example .env
-```
+does not apply.
 
 ## Usage
 
 How to run the project:
 
 ```bash
-npm run start
-# or
-yarn start
+.../rest-spring-boot$ mvn clean install
+java -jar rest-spring-boot-0.0.1-SNAPSHOT.jar
+.../config-serve$ mvn clean install
+java -jar config-serve-0.0.1-SNAPSHOT.jar
 ```
 
 ## Environment Variables
 
-```bash
-DATABASE_URL=
-JWT_SECRET=
-PORT=3000
-```
+does not apply.
 
 ## Project Structure
 
 ```text
 src/
-├── config/
 ├── controllers/
-├── middleware/
 ├── models/
-├── routes/
 ├── services/
-├── utils/
-└── app.js
 ```
 
 ## API Documentation
@@ -96,14 +80,16 @@ Describe your API endpoints:
 
 ### Authentication
 
-`POST /api/auth/login`
+`POST http://localhost:8080/person`
 
 - Request body:
 
 ```json
 {
-  "email": "user@example.com",
-  "password": "password123"
+    "firstName":"Denis",
+    "lastName":"Oliveira",
+    "address":"Rua MAria",
+    "gender":"Male"
 }
 ```
 
@@ -112,9 +98,7 @@ Describe your API endpoints:
 How to run tests:
 
 ```bash
-npm run test
-# or
-yarn test
+mvn test
 ```
 
 ## Contributing
@@ -128,30 +112,3 @@ yarn test
 ## License
 
 This project is licensed under the MIT License
-
-```text
-This README template includes:
-1. Project overview
-2. Setup instructions
-3. Usage guidelines
-4. Environment configuration
-5. Project structure
-6. API documentation
-7. Testing instructions
-8. Contributing guidelines
-9. License information
-
-You should customize each section based on your specific project needs by:
-- Adding relevant project-specific information
-- Removing sections that don't apply
-- Expanding sections that need more detail
-- Including specific examples and use cases
-- Adding screenshots or diagrams if needed
-
-Remember to keep your README:
-- Clear and concise
-- Well-organized
-- Easy to follow
-- Up-to-date with your project
-- Including all necessary information for both users and contributors
-```
